@@ -8,6 +8,6 @@ def square(a):
 
 
 a = input("Сторона квадрата: ")
-side = int(a)
+side = float(a)
 result = square(side)
 print(f"Площадь квадрата: {result}")
