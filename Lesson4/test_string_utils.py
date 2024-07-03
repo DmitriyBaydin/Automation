@@ -14,11 +14,11 @@ st_ut = StringUtils()
     ("мариАнна", "Марианна"),
     ("mary Anne", "Mary anne"),
     ("пример-1", "Пример-1"),
+    ("Volvo", "Volvo"),
+    ("европа ", "Европа "),
     # негативные
     ("", ""),
     (" ", " "),
-    ("Volvo", "Volvo"),
-    ("европа ", "Европа "),
     ("123abc", "123abc"),
     (123, 123)
     ])
@@ -37,11 +37,11 @@ def test_capitilize(string, result):
     ("  123  ", "123  "),
     (" Mary-Anne", "Mary-Anne"),
     ("   Остров16", "Остров16"),
-    # негативные
-    ("", ""),
     ("со бака", "со бака"),
     ("лето", "лето"),
     ("123  ", "123  "),
+    # негативные
+    ("", ""),
     (1, 1),
     (0, 0)
     ])
@@ -61,9 +61,9 @@ def test_trim(string, result):
     ("1,2,3,4,5", None, ["1", "2", "3", "4", "5"]),
     ("#^*^!^?^$", "^", ["#", "*", "!", "?", "$"]),
     ("A/nB/nC", "/n", ["A", "B", "C"]),
-    # негативные
-    ("", None, []),
     ("0,3,7,20 24", None, ["0", "3", "7", "20 24"]),
+    # негативные
+    ("", None, [])
     ])
 def test_to_list(string, divider, result):
     st_ut = StringUtils()
@@ -83,13 +83,13 @@ def test_to_list(string, divider, result):
     ("bus ", "s", True),
     ("12345", "1", True),
     ("#*!?$", "$", True),
-    ("", "", True),
     # негативные
     ("Moscow", "m", False),
     ("Moscow", "W", False),
     ("привет", "ы", False),
     ("привет", "?", False),
     ("привет", "", False),
+    ("", "", True),
     (" ", "a", False)
     ])
 def test_contains(string, symbol, result):
