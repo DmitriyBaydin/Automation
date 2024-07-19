@@ -30,7 +30,6 @@ browser.find_element(By.XPATH, '//*[@id="postal-code"]').send_keys("140013")
 browser.find_element(By.XPATH, '//*[@id="continue"]').click()
 sleep(2)
 
-Total = browser.find_element(
-    By.XPATH, '//*[@id="checkout_summary_container"]/div/div[2]/div[8]').text
+Total = browser.find_element(By.CSS_SELECTOR, 'div.summary_total_label').text
 print(Total + "$")
 browser.quit()

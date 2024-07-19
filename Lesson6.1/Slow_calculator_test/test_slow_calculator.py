@@ -16,24 +16,18 @@ def test_fill_form():
 
     browser.find_element(By.CSS_SELECTOR, "#delay").clear()
     browser.find_element(By.CSS_SELECTOR, "#delay").send_keys("45")
-    browser.find_element(
-        By.XPATH, '//*[@id="calculator"]/div[2]/span[1]').click()
-    browser.find_element(
-        By.XPATH, '//*[@id="calculator"]/div[2]/span[4]').click()
-    browser.find_element(
-        By.XPATH, '//*[@id="calculator"]/div[2]/span[2]').click()
-    browser.find_element(
-        By.XPATH, '//*[@id="calculator"]/div[2]/span[15]').click()
+    browser.find_element(By.XPATH, '//span[text() ="7"]').click()
+    browser.find_element(By.XPATH, '//span[text() ="+"]').click()
+    browser.find_element(By.XPATH, '//span[text() ="8"]').click()
+    browser.find_element(By.XPATH, '//span[text() ="="]').click()
 
     waiter = WebDriverWait(browser, 60)
 
     waiter.until(
-        EC.text_to_be_present_in_element((
-            By.XPATH, '//*[@id="calculator"]/div[1]/div'), "15")
+        EC.text_to_be_present_in_element((By.CSS_SELECTOR, 'div.screen'), "15")
         )
 
-    result = browser.find_element(
-        By.XPATH, '//*[@id="calculator"]/div[1]/div').text
-    assert "15" in result
+    sum = browser.find_element(By.CSS_SELECTOR, 'div.screen').text
+    assert "15" in sum
 
     browser.quit()

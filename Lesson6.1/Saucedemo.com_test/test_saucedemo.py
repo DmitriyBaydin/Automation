@@ -37,5 +37,5 @@ def test_fill_form():
     browser.find_element(By.XPATH, '//*[@id="continue"]').click()
 
     assert "Total: $58.29" == browser.find_element(
-        By.XPATH, '//*[@id="checkout_summary_container"]/div/div[2]/div[8]').text
+        By.CSS_SELECTOR, 'div.summary_total_label').text
     browser.quit()
