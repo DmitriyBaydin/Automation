@@ -14,7 +14,7 @@ def test_buying():
     main_page.user_submit()
 
     product_page = ProductPage(browser)
-    added = product_page.add_product()
+    added = product_page.add_to_cart()
 
     cart_page = CartPage(browser)
     checkout = cart_page.checkout()
