@@ -1,14 +1,14 @@
 {
-    "python.analysis.typeCheckingMode": "basic",
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        "./Lesson8",
+        ".",
         "-p",
-        "test_*.py"
+        "*test*.py"
     ],
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false,
+    "python.analysis.autoImportCompletions": true,
     "python.testing.pytestArgs": [
         "."
     ]
